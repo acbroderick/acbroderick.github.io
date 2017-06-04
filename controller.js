@@ -25,11 +25,13 @@ var controller = {
             this.models.boardState.checkWinner();
               if (this.models.boardState.checkWinner() && this.endGame === false) {
                 document.getElementById('reset').appendChild(this.models.boardState.makeButton());
+                document.getElementById('who').innerHTML = '';
                 this.endGame = true;
               }
             this.models.boardState.checkTie();
               if (this.models.boardState.checkTie()) {
                 document.getElementById('reset').appendChild(this.models.boardState.makeButton());
+                document.getElementById('who').innerHTML = '';
                 this.endGame = true;
               }
           }
