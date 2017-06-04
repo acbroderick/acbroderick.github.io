@@ -12,20 +12,24 @@ var controller = {
       var row = box.parentElement.getAttribute('row');
       var column = box.getAttribute('column');
       var nextPlayer = this.models.playerState.getNextPlayer();
-      this.models.boardState.addMove(row, column, nextPlayer, (err) => {
-        if(err) {
-          alert('Only one player per square!');
-        } else {
-          var newBoard = this.models.boardState.getBoardState();
-          this.view.repopulateBoard(newBoard);
-          this.models.playerState.togglePlayer();
-          this.models.boardState.checkWinner();
-            if (this.models.boardState.checkWinner() && this.endGame === false) {
-              document.getElementById('reset').appendChild(this.models.boardState.makeButton());
-              this.endGame = true;
-            }
-          this.models.boardState.checkTie();
-        }
-      });
-    }
+      if(this.endGame) {
+        return;
+      } else {
+        this.models.boardState.addMove(row, column, nextPlayer, (err) => {
+          if(err) {
+            alert('Only one player per square!');
+          } else {
+            var newBoard = this.models.boardState.getBoardState();
+            this.view.repopulateBoard(newBoard);
+            this.models.playerState.togglePlayer();
+            this.models.boardState.checkWinner();
+              if (this.models.boardState.checkWinner() && this.endGame === false) {
+                document.getElementById('reset').appendChild(this.models.boardState.makeButton());
+                this.endGame = true;
+              }
+            this.models.boardState.checkTie();
+          }
+        });
+      }
+  }
 };
