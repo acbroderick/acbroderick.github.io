@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <script src="initialize.js"></script>
+
+    <script src="models/boardModel.js"></script>
+    <script src="models/playerModel.js"></script>
+
+    <script src="views/initializeView.js"></script>
+    <script src="views/gameplayView.js"></script>
+
+    <script src="controller.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="resources/tictactoeFINAL.css">
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        initialize();
+      });
+    </script>
+  </head>
+  <body>
+  <h1>Tic Tac Toe</h1>
+    <span id ='who'>
+      X's turn:
+    </span>
+    <br>
+    <span id ='win'>
+    </span>
+    <br>
+    <br>
+  <table id='ticTacBoard'></table>
+    <br>
+  <span id ='reset'>
+  </span>
+  </body>
+</html>
