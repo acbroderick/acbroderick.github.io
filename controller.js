@@ -28,6 +28,10 @@ var controller = {
                 this.endGame = true;
               }
             this.models.boardState.checkTie();
+              if (this.models.boardState.checkTie()) {
+                document.getElementById('reset').appendChild(this.models.boardState.makeButton());
+                this.endGame = true;
+              }
           }
         });
       }

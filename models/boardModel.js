@@ -64,7 +64,7 @@ var boardModel = {
     }
     if (noWinner) {
       document.getElementById('win').innerHTML = 'It is a Tie!';
-      document.getElementById('reset').appendChild(this.makeButton());
+      return noWinner;
     }
   }
 }
